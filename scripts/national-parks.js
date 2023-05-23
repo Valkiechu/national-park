@@ -1,7 +1,7 @@
 "use strict";
 
 const selection = document.querySelector("#search-bar");
-const parksTblBody = document.querySelectorAll("#parks-tbl-body");
+const parksTblBody = document.querySelector("#parks-tbl-body");
 let option = new Option("Search Type");
 const searchRadio = document.querySelector(`input[name= "search-by"]:checked`);
 
@@ -27,7 +27,7 @@ function buildParkRow(tbody, park) {
   cell1.innerText = park.LocationName;
 
   let cell2 = row.insertCell(1);
-  if (park.Address) {
+  if (!park.Address) {
     cell2.innerText = "No Address";
   } else {
     cell2.innerText = park.Address;
@@ -40,21 +40,21 @@ function buildParkRow(tbody, park) {
   cell4.innerText = park.State;
 
   let cell5 = row.insertCell(4);
-  if (park.ZipCode) {
+  if (!park.ZipCode) {
     cell5.innerText = "No ZIP";
   } else {
     cell5.innerText = park.ZipCode;
   }
 
   let cell6 = row.insertCell(5);
-  if (park.Phone) {
+  if (!park.Phone) {
     cell6.innerText = "No Phone";
   } else {
     cell6.innerText = park.Phone;
   }
 
   let cell7 = row.insertCell(6);
-  if (park.Visit) {
+  if (!park.Visit) {
     cell7.innerText = "No URL";
   } else {
     cell7.innerHTML = `<a href="${park.Visit}" target="_blank">Visit Page</a>`;
@@ -76,14 +76,14 @@ function findMatchParks() {
   }
 }
 function displayMatchingParks(matchParks) {
-  // parksTblBody.innerHTML = "";
+  parksTblBody.innerHTML = "";
   for (let i = 0; i < matchParks.length; i++) {
     buildParkRow(parksTblBody, matchParks[i]);
   }
 }
   
 function filterDisplay() {
-  // parksTblBody.innerHTML = "";
+  parksTblBody.innerHTML = "";
   let filteredParks = findMatchParks();
   displayMatchingParks(filteredParks);
 }
