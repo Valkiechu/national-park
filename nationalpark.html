@@ -16,7 +16,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Home</a>
+          <a class="navbar-brand" href="index.html">Home</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -43,13 +43,57 @@
     </header>
 
     <main>
-        <style>
-            body {
-              background-image: url(images/titlepage.jpg);
-              background-size: auto;
-              margin: auto;
-            }
-          </style>
+        <div class="container">
+            <div>
+              <input
+              type="radio"
+              name="search-by"
+              id="search-by-location"
+              onchange="optionsInDDL();"
+              value="location"
+            />
+            <label for="">By Location</label>
+            <input
+              type="radio"
+              name="search-by"
+              id="search-by-type"
+              onchange="typesInDDL();"
+              value="type"
+            />
+            <label for="">By Type</label>
+            </div>
+    
+            <div>
+              <h2>Places</h2>
+              <select name="search" id="search-bar" onchange="filterDisplay()">
+                <option value="">Please Select</option>
+              </select>
+              <table id="match-parks">
+                <thead>
+                  <tr>
+                    <h4>Search Results</h4>
+                  </tr>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Phone</th>
+                    <th>Website</th>
+                  </tr>
+                </thead>
+                <tbody id="parks-tbl-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+       
     </main>
+    
+    <script src="scripts/locationData.js"></script>
+    <script src="scripts/parkTypeData.js"></script>
+    <script src="scripts/nationalParkData.js"></script>
+    <script src="scripts/national-parks.js"></script>
   </body>
 </html>
