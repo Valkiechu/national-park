@@ -1,19 +1,19 @@
 "use strict";
 
 const selection = document.querySelector("#search-bar");
-const parksTbl = document.querySelectorAll("#parks-table");
+const parksTblBody = document.querySelectorAll("#parks-tbl-body");
 let option = new Option("Search Type");
 const searchRadio = document.querySelector(`input[name= "search-by"]:checked`);
 
 function optionsInDDL() {
-  selection.innerHTML ="";
+  selection.innerHTML = "";
   for (const location of locationsArray) {
     let option = new Option(location, location);
     selection.appendChild(option);
   }
 }
 function typesInDDL() {
-  selection.innerHTML ="";
+  selection.innerHTML = "";
   for (const type of parkTypesArray) {
     let option = new Option(type, type);
     selection.appendChild(option);
@@ -54,25 +54,36 @@ function buildParkRow(tbody, park) {
   }
 
   let cell7 = row.insertCell(6);
-  if !park.Visit) {
+  if (park.Visit) {
     cell7.innerText = "No URL";
   } else {
     cell7.innerHTML = `<a href="${park.Visit}" target="_blank">Visit Page</a>`;
   }
 }
-function findMatchingParks() {
-  return nationalParksArray.filter((p) => p.State == selection.value);
-}
-
-function displayMatchingParks(matchParks) {
-  matchParksTblBody.innerHTML = "";
-  for (let i = 0; i < matchParks.length; i++) {
-    buildParkRow(matchingParksTblBody, matchParks[i]);
+function findMatchParks() {
+  const searchBy = document.querySelector(
+    "input[name='search-by']:checked"
+  );
+  switch (searchBy.value) {
+    case "location":
+      return nationalParksArray.filter((p) => p.State == selection.value);
+    case "type":
+      return nationalParksArray.filter((p) =>
+        p.LocationName.includes(selection.value)
+      );
+    default:
+      return [];
   }
 }
-
-function filterAndDisplay() {
-  matchParksTblBody.innerHTML = "";
-  let filteredParks = findMatchingParks();
+function displayMatchingParks(matchParks) {
+  // parksTblBody.innerHTML = "";
+  for (let i = 0; i < matchParks.length; i++) {
+    buildParkRow(parksTblBody, matchParks[i]);
+  }
+}
+  
+function filterDisplay() {
+  // parksTblBody.innerHTML = "";
+  let filteredParks = findMatchParks();
   displayMatchingParks(filteredParks);
 }
