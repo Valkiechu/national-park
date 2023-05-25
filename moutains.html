@@ -52,14 +52,28 @@
     </header>
 
     <main>
-
-      <h1>Mountain Selection</h1>
-      <select name="" id="mountain-dropList" onchange="displayMountData(value)">
-        <option value="">Please Select Mountain...</option>
+      <h2>Places</h2>
+      <select name="search" id="mountains-DropList" onchange="displayMountainInfo()">
+        <option value="">Please Select. . . </option>
       </select>
-      <div id="display-div"></div>
+      <table>
+        <thead>
+          <tr>
+            <h4>Search Results</h4>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Elevation</th>
+            <th>How Hard is it?</th>
+            <th>Image</th>
+    
+          </tr>
+        </thead>
+        <tbody id="mountain-tbl-body"></tbody>
       
     </main>
     <script src="scripts/mountainData.js"></script>
+    <script src="scripts/mountains.js"></script>
     </body>
 </html>
