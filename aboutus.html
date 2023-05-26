@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>National Park</title>
-
-    <link rel="stylesheet" href="styles/styles.css">
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles/styles.css" />
 
+    <!-- <style>
+      body {
+        background-image: url(images/titlepage.jpg);
+      }
+    </style> -->
   </head>
-  <body>
+  <body class="">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -86,84 +89,27 @@
       </nav>
     </header>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <main>
-      <div style="text-align: center;">
-        <div>
-          <input
-            type="radio"
-            name="search-by"
-            id="search-by-location"
-            onchange="optionsInDDL();"
-            value="location"
-            class="radio-input"
-          />
-          <label for="">By Location</label>
-          <input
-            type="radio"
-            name="search-by"
-            id="search-by-type"
-            onchange="typesInDDL();"
-            value="type"
-            class="radio-input"
-          />
-          <label for="">By Type</label>
-        </div>
-
-        <div style="text-align: center;">
-          <h2 align = "center">Places or Type </h2>
-          <select class="selectbar" name="search" id="search-bar" onchange="filterDisplay()">
-            <option value="">Please Select</option>
-          </select>
-          <table class="texttable">
-            <thead>
-              <tr>
-                <h4 align = "center">Search Results</h4>
-              </tr>
-              <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip</th>
-                <th>Phone</th>
-                <th>Website</th>
-              </tr>
-            </thead>
-            <tbody id="parks-tbl-body"></tbody>
-          </table>
-        </div>
+    <main></main>
+    <footer
+      class="text-center text-white"
+      style="background-color: transparent"
+    >
+      <div class="container p-4 pb-0">
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">About Us</span>
+            <button
+              type="button"
+              class="btn btn-outline-light btn-rounded"
+            ></button>
+          </p>
+        </section>
       </div>
-    </main>
 
-    <script src="scripts/locationData.js"></script>
-    <script src="scripts/parkTypeData.js"></script>
-    <script src="scripts/nationalParkData.js"></script>
-    <script src="scripts/national-parks.js"></script>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-white" href=""></a>
+      </div>
+    </footer>
   </body>
-  <footer
-  class="text-center text-white"
-  style="background-color: transparent"
->
-  <div class="container p-4 pb-0">
-    <section class="">
-      <p class="d-flex justify-content-center align-items-center">
-        <span class="me-3">About Us</span>
-        <button
-          type="button"
-          class="btn btn-outline-light btn-rounded"
-        ></button>
-      </p>
-    </section>
-  </div>
-
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2023 Copyright:
-    <a class="text-white" href=""></a>
-  </div>
-</footer>
 </html>
