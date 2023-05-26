@@ -29,5 +29,14 @@ footer {
   background-color: rgba(0, 0, 0, 0.5);
   margin: auto;
   width: 80em;
-  border-radius: ;
+  border-radius: none;
+}
+
+.bigpara {
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    width: 80em;
+    border: none;
+    
 }
